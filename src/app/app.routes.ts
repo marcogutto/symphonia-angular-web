@@ -9,15 +9,15 @@ import { LayoutComponent } from 'app/layout/layout.component';
 /* eslint-disable @typescript-eslint/explicit-function-return-type */
 export const appRoutes: Route[] = [
 
-    // Redirect empty path to '/example'
-    {path: '', pathMatch : 'full', redirectTo: 'example'},
+    // Redirect empty path to '/dashboard'
+    {path: '', pathMatch : 'full', redirectTo: 'dashboard'},
 
-    // Redirect signed-in user to the '/example'
+    // Redirect signed-in user to the '/dashboard'
     //
     // After the user signs in, the sign-in page will redirect the user to the 'signed-in-redirect'
     // path. Below is another redirection for that path to redirect the user to the desired
     // location. This is a small convenience to keep all main routes together here on this file.
-    {path: 'signed-in-redirect', pathMatch : 'full', redirectTo: 'example'},
+    {path: 'signed-in-redirect', pathMatch : 'full', redirectTo: 'dashboard'},
 
     // Auth routes for guests
     {
@@ -74,6 +74,18 @@ export const appRoutes: Route[] = [
             initialData: initialDataResolver
         },
         children: [
+            // Telas principais do sistema
+            {path: 'dashboard', loadChildren: () => import('app/modules/admin/dashboard/dashboard.routes')},
+            {path: 'flows', loadChildren: () => import('app/modules/admin/flows/flows.routes')},
+            {path: 'prompts', loadChildren: () => import('app/modules/admin/prompts/prompts.routes')},
+            {path: 'pending-messages', loadChildren: () => import('app/modules/admin/pending-messages/pending-messages.routes')},
+            {path: 'integrations', loadChildren: () => import('app/modules/admin/integrations/integrations.routes')},
+            {path: 'knowledge-base', loadChildren: () => import('app/modules/admin/knowledge-base/knowledge-base.routes')},
+            {path: 'conversations', loadChildren: () => import('app/modules/admin/conversations/conversations.routes')},
+            {path: 'users', loadChildren: () => import('app/modules/admin/users/users.routes')},
+            {path: 'settings', loadChildren: () => import('app/modules/admin/settings/settings.routes')},
+            
+            // Manter exemplo original
             {path: 'example', loadChildren: () => import('app/modules/admin/example/example.routes')},
         ]
     }

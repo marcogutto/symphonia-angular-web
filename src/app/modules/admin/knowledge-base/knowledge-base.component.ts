@@ -1,91 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, ViewEncapsulation } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
     selector: 'app-knowledge-base',
     standalone: true,
     imports: [CommonModule],
-    template: `
-        <div class="p-6">
-            <div class="flex justify-between items-center mb-6">
-                <h1 class="text-3xl font-bold">Banco de Conhecimento</h1>
-                <button class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700">
-                    Upload Documento
-                </button>
-            </div>
-
-            <!-- Upload Area -->
-            <div class="bg-white rounded-lg shadow mb-6">
-                <div class="p-6">
-                    <div class="border-2 border-dashed border-gray-300 rounded-lg p-8 text-center">
-                        <div class="text-4xl mb-4">📄</div>
-                        <p class="text-lg mb-2">Arraste arquivos aqui ou clique para selecionar</p>
-                        <p class="text-sm text-gray-500">Suporte: PDF, CSV, TXT, DOCX</p>
-                        <button class="mt-4 bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700">
-                            Selecionar Arquivos
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Busca -->
-            <div class="bg-white rounded-lg shadow mb-6">
-                <div class="p-4">
-                    <div class="flex gap-4">
-                        <input type="text" placeholder="Buscar no conhecimento..." 
-                               class="flex-1 border rounded-lg px-3 py-2">
-                        <button class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700">
-                            Buscar
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Lista de Documentos -->
-            <div class="bg-white rounded-lg shadow">
-                <div class="p-4 border-b">
-                    <h3 class="text-lg font-semibold">Documentos Indexados</h3>
-                </div>
-                <div class="divide-y">
-                    <div class="p-4 hover:bg-gray-50">
-                        <div class="flex justify-between items-start">
-                            <div class="flex items-center gap-3">
-                                <div class="w-10 h-10 bg-red-100 rounded-lg flex items-center justify-center">
-                                    <span class="text-red-600 font-semibold text-sm">PDF</span>
-                                </div>
-                                <div>
-                                    <h4 class="font-medium">Manual do Usuário</h4>
-                                    <p class="text-sm text-gray-500">Atualizado há 2 dias • 1.2 MB</p>
-                                    <span class="px-2 py-1 bg-green-100 text-green-800 rounded text-xs">Indexado</span>
-                                </div>
-                            </div>
-                            <div class="flex gap-2">
-                                <button class="text-blue-600 hover:text-blue-800 text-sm">Visualizar</button>
-                                <button class="text-red-600 hover:text-red-800 text-sm">Remover</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="p-4 hover:bg-gray-50">
-                        <div class="flex justify-between items-start">
-                            <div class="flex items-center gap-3">
-                                <div class="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center">
-                                    <span class="text-green-600 font-semibold text-sm">CSV</span>
-                                </div>
-                                <div>
-                                    <h4 class="font-medium">FAQ Produtos</h4>
-                                    <p class="text-sm text-gray-500">Atualizado há 1 semana • 245 KB</p>
-                                    <span class="px-2 py-1 bg-yellow-100 text-yellow-800 rounded text-xs">Processando</span>
-                                </div>
-                            </div>
-                            <div class="flex gap-2">
-                                <button class="text-blue-600 hover:text-blue-800 text-sm">Visualizar</button>
-                                <button class="text-red-600 hover:text-red-800 text-sm">Remover</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    `
+    templateUrl  : './knowledge-base.component.html',
+    encapsulation: ViewEncapsulation.None,
 })
 export class KnowledgeBaseComponent {}
